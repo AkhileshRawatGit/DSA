@@ -2,7 +2,8 @@
 #include<vector>
 using namespace std;
 void binarystring(string str,string s,vector<string>&ans,int ind){
-    if(ind==str.size()){
+    int n=str.size();
+    if(ind==n){
         ans.push_back(s);
         return;
     }
@@ -26,7 +27,8 @@ int main(){
     cout<<"enter the string: ";
     cin>>s;
     vector<string>ans=binaryStrings(s);
-    for(int i=0;i<ans.size();i++){
+    int n=ans.size();
+    for(int i=0;i<n;i++){
         cout<<ans[i]<<" ";
     }
     return 0;
