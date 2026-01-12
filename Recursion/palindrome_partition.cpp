@@ -16,11 +16,13 @@ bool palindrome(string s){
     return true;
 }
 void subset(string ques,vector<vector<string>>&ans,vector<string>dummy){
-    if(ques.size()==0){
+    int n=ques.size();
+    if(n==0){
         ans.push_back(dummy);
         return;
     }
-    for(int i=0;i<ques.size();i++){
+
+    for(int i=0;i<n;i++){
         string sub=ques.substr(0,i+1);
         if(palindrome(sub)){
             dummy.push_back(sub);
