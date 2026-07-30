@@ -15,18 +15,13 @@ public:
                 }
             }
         }
-        for (int i = 0; i < n; i++) {
-            cout << index[i] << " ";
-        }
         int maxI = *max_element(lds.begin(), lds.end());
         int maxi=-1;
         for (int i = 0; i < n; i++) {
             if (lds[i] == maxI)
                 maxi = i;
         }
-        cout<<maxi;
-        vector<int> ans;
-
+       vector<int> ans;
         while (maxi != -1) {
             ans.push_back(nums[maxi]);
             maxi = index[maxi];
