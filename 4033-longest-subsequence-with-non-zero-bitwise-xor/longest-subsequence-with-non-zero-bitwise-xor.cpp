@@ -5,7 +5,7 @@ public:
         int a=0;
         bool nonzero=false;
         for(int i=0;i<nums.size();i++){
-            nonzero |=nums[i]>0;
+            if(nums[i]>0) nonzero=true;
             a=a^nums[i];
         }
         if(a!=0) return nums.size();
