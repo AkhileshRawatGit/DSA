@@ -1,25 +1,31 @@
 class Solution {
 public:
-    int totalOperation(string s,string a){
-        if(s==a) return 0;
-        string left=s;
-        sort(left.begin(),left.end()-1);
-        string right=s;
-        sort(right.begin()+1,right.end());
-        int l=INT_MAX-1;
-        int r=INT_MAX-1;
-        if(left!=s){
-            l=totalOperation(left,a);
-        }
-        if(right!=s){
-            r=totalOperation(right,a);
-        }
-        return 1+min(l,r);
-    }
     int minOperations(string s) {
-        string a=s;
-        sort(a.begin(),a.end());
-        if(a==s) return 0;
-        return totalOperation(s,a)==INT_MAX?-1:totalOperation(s,a);
+        int n = s.size();
+
+        string a = s;
+        sort(a.begin(), a.end());
+
+        if (s == a) return 0;
+        if (n == 2) return -1; 
+
+        int minIndex = 0;   
+        int maxIndex = 0;  
+
+        for (int i = 1; i < n; i++) {
+            if (s[i] < s[minIndex])
+                minIndex = i;
+
+            if (s[i] >= s[maxIndex])   
+                maxIndex = i;
+        }
+
+        if (minIndex == 0 || maxIndex == n - 1)
+            return 1;
+
+        if (minIndex != n - 1 || maxIndex != 0)
+            return 2;
+
+        return 3;
     }
 };
