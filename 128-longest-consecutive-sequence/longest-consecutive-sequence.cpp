@@ -2,14 +2,14 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         if(nums.size()==0) return 0;
-        map<int,int>mp;
+        set<int>st;
         for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
+            st.insert(nums[i]);
         }
         int res=1;
         int count=0;
-        for(auto&i:mp){
-            if(mp.find(i.first+1)!=mp.end()){
+        for(auto&i:st){
+            if(st.find(i+1)!=st.end()){
                 count++;
             }
             else{
