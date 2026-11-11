@@ -2,11 +2,9 @@ class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
         //int maxi=*max_element(nums.begin(),nums.end());
-        vector<int>dummy=nums;
-        reverse(dummy.begin(),dummy.end());
         stack<int>st;
-        for(int i=0;i<dummy.size();i++){
-            st.push(dummy[i]);
+        for(int i=nums.size()-1;i>=0;i--){
+            st.push(nums[i]);
         }
         vector<int>res(nums.size());
         for(int i=nums.size()-1;i>=0;i--){
